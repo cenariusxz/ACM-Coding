@@ -104,6 +104,8 @@ newstu	苏大新生赛
 
 online	网络赛
 
+PAT	PAT
+
 poj		poj
 
 python	python
