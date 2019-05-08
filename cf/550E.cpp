@@ -1,29 +1,52 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+typedef long long ll;
+const int mod = 1e9 + 7;
+const int INF = 0x3f3f3f3f;
+const double eps = 1e-8;
+const int maxn = 1e5 + 5;
 
-int a[100005];
+int num[maxn],left[maxn],right[maxn];
+int n;
+
+bool solve(){
+	if(num[n])return 0;
+	if(n == 1)return 1;
+	if(num[n-1])return 1;
+	int cnt = 0;
+	for(int i = 1 ; i <= n ; ++ i)if(!num[i])cnt++;
+	if(cnt <= 2)return 0;
+	cnt = 0;
+	for(int i = n ; i >= 1 ; -- i){
+		if(!num[i]){
+			cnt++;
+			if(cnt == 2)right[i] = 2;
+			if(cnt == 3){
+				left[i] = 1;
+				left[i+1] = 1;
+				break;
+			}
+		}
+	}
+	return 1;
+}
 
 int main(){
-	int i,n;
 	scanf("%d",&n);
-	for(i=1;i<=n;i++)scanf("%d",&a[i]);
-	if(a[n]==1)printf("NO\n");
-	else if(n==1&&a[n]==0)printf("YES\n0\n");
+	for(int i = 1 ; i <= n ; ++ i)scanf("%d",&num[i]);
+	if(!solve())printf("NO\n");
 	else{
-		if(a[n-1]==1){
-			printf("YES\n");
-			for(i=1;i<=n-1;i++)printf("%d->",a[i]);
-			printf("%d\n",a[n]);
-		}
-		else{
-			if(n==2)printf("NO\n");
-			else if(a[n-2]==0){
-				printf("YES\n");
-				for(i=1;i<=n-3;i++)printf("%d->",a[i]);
-				printf("(%d->%d)->%d\n",a[n-2],a[n-1],a[n]);
+		printf("YES\n");
+		for(int i = 1 ; i <= n ; ++ i){
+			if(i != 1)printf("->");
+			if(left[i]){
+				for(int j = 1 ; j <= left[i] ; ++ j)printf("(");
 			}
-			else printf("NO\n");
+			printf("%d",num[i]);
+			if(right[i]){
+				for(int j = 1 ; j <= right[i] ; ++ j)printf(")");
+			}
 		}
+		printf("\n");
 	}
 	return 0;
 }
