@@ -18,7 +18,6 @@ int main(){
 				}
 			}
 			cnt=0;
-			v[t]=1;
 			b[i]=t;
 		}
 		for(i=1;i<=n;i++){

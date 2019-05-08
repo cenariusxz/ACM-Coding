@@ -76,6 +76,8 @@ dalian	2016ICPC 大连赛区
 
 fm		my vjudge contest faith&miracle
 
+fzu	福大OJ
+
 gcj		Google Code Jam
 
 hdu		hduoj
