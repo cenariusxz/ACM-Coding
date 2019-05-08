@@ -1,0 +1,6 @@
+long long c(int a,int b)
+{
+    long long i,sum=1,j;
+    for (i=a,j=1;i>=a-b+1,j<=b;i--,j++) sum=sum*i/j;
+    return sum;
+}
