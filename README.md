@@ -88,6 +88,8 @@ ICPCCamp2016	ICPCCamp2016
 
 js		计蒜之道
 
+learning2015	2014-2015寒假集训学习内容及代码
+
 Linux操作系统	Linux操作系统
 
 luogu	luoguOJ
