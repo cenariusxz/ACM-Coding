@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<string.h>
+const int maxm=70005;
+
+struct trie{
+	int nxt[maxm][26];
+	int cnt[maxm];
+	int tail[maxm];
+	int size;
+
+	void init(){
+		memset(nxt[0],0,sizeof(nxt[0]));
+		memset(tail,0,sizeof(tail));
+		memset(cnt,0,sizeof(cnt));
+		size=1;
+	}
+
+	void insert(char s[]){
+		int p=0;
+		for(int i=0;s[i];i++){
+			int &x=nxt[p][s[i]-'a'];
+			if(!x){
+				memset(nxt[size],0,sizeof(size));
+				x=size++;
+			}
+			cnt[x]++;
+			p=x;
+		}
+		tail[p]++;
+	}
+
+	void find(int p,int k,int c){
+//		for(int i=0;i<=5;i++)printf("%d ",cnt[nxt[p][i]]);
+//		printf("\n");
+		for(int i=0;i<=25;i++){
+			int x=nxt[p][i];
+			if(k>tail[x]){
+				k-=tail[x];
+				if(k>cnt[x]){
+					k-=cnt[x];
+				}
+				else{
+					printf("%c",'a'+i);
+					find(x,k);
+					break;
+				}
+			}
+			else{
+				printf("%c",'a'+i);
+				break;
+			}
+		}
+	}
+
+	void debug(int p){
+		p=nxt[p][0];
+		for(int i=0;i<=25;i++){
+			if(cnt[nxt[p][i]]){
+				printf("%c %d\n",'a'+i,cnt[nxt[p][i]]);
+			}
+		}
+	}
+};
+
+char s[100];
+
+int main(){
+	int n;
+	scanf("%d",&n);
+	int i;
+	trie T;
+	T.init();
+	for(i=1;i<=n;i++){
+		scanf("%s",s);
+		T.insert(s);
+	}
+	T.find(0,1,0);
+//	T.debug(0);
+	printf("\n");
+	return 0;
+}

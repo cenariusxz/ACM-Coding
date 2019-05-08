@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+import java.math.BigDecimal;
+
+public class Main{
+	static public void main(String args[]){
+		BigDecimal tmp=BigDecimal.valueOf(5.0),tmp_fan=new BigDecimal(1);
+		BigDecimal l=BigDecimal.valueOf(2),r=BigDecimal.valueOf(3);
+		BigDecimal mid=BigDecimal.ZERO;
+		BigDecimal tt=BigDecimal.valueOf(2);
+		for(int i=1;i<=100;++i){
+			mid=l.add(r).divide(tt);
+			if(mid.multiply(mid).compareTo(tmp)<=0)l=mid;
+			else r=mid;
+		}
+		tmp=mid.add(BigDecimal.ONE).divide(tt);
+		System.out.println(tt);
+		System.out.println(mid.add(BigDecimal.ONE));
+		tmp_fan=tt.divide(mid.add(BigDecimal.ONE),);
+		System.out.println(tmp);
+		Scanner input=new Scanner(System.in);
+		BigDecimal a,b;
+		while(input.hasNext()){
+			a=input.nextBigDecimal();
+			b=input.nextBigDecimal();
+			if(a.compareTo(b)>0){
+				BigDecimal t=a;
+				a=b;
+				b=t;
+			}
+			BigDecimal num=a.multiply(tmp_fan);
+			num=new BigDecimal(num.toBigInteger().toString());
+			BigDecimal tmpa=num.multiply(tmp),tmpb=tmpa.add(num);
+			if(a.compareTo(tmpa)==0&&b.compareTo(tmpb)==0){
+				System.out.println('0');
+			}
+			else System.out.println("1");
+		}
+		input.close();
+	}
+}

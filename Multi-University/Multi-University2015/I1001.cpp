@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<string.h>
+typedef long long ll;
+const int mod=1e9+7;
+
+int a[105];
+ll A[105],C[105][105];
+ll Ans[105][105];
+bool f[105][105];
+char s[105];
+
+ll solve(int i,int j){
+	if(f[i][j])return Ans[i][j];
+	if(i==j){
+		Ans[i][j]=a[i];
+		f[i][j]=1;
+		return a[i];
+	}
+	ll ans=0;
+	for(int k=i;k<j;++k){
+		int maxx,minn;
+		if(j-k-1>k-i){
+			maxx=j-k;
+			minn=k-i;
+		}
+		else{
+			maxx=k-i+1;
+			minn=j-k-1;
+		}
+		if(s[k]=='+'){
+			ans=((ans+ ((A[j-k-1]*solve(i,k))%mod+(A[k-i]*solve(k+1,j))%mod) %mod *(C[maxx+minn-1][minn])%mod)%mod+mod)%mod;
+//		if(i==1&&j==4&&k==2)printf("%d %d %lld %lld\n",maxx+minn-1,minn,C[maxx+minn-1][minn],A[j-k-1]);
+		}
+		if(s[k]=='-'){
+			ans=((ans+ ((A[j-k-1]*solve(i,k))%mod-(A[k-i]*solve(k+1,j))%mod) %mod *(C[maxx+minn-1][minn])%mod)%mod+mod)%mod;
+		}
+		if(s[k]=='*'){
+			ans=((ans+(solve(i,k)*solve(k+1,j))%mod*(C[maxx+minn-1][minn]))%mod+mod)%mod;
+		}
+//		if(i==1&&j==4&&k==2)printf("%lld\n",ans);
+	}
+	f[i][j]=1;
+	Ans[i][j]=ans;
+	return ans;
+}
+
+void init(){
+	C[0][0]=1;
+	for(int i=1;i<=100;++i){
+		C[i][0]=C[i][i]=1;
+		for(int j=1;j<=i-1;++j){
+			C[i][j]=(C[i-1][j-1]+C[i-1][j])%mod;
+		}
+	}
+}
+
+int main(){
+	init();
+	A[0]=A[1]=1;
+	for(int i=2;i<=100;++i)A[i]=(A[i-1]*i)%mod;
+	int n;
+	while(scanf("%d",&n)!=EOF){
+		memset(f,0,sizeof(f));
+		int i;
+		for(i=1;i<=n;++i)scanf("%d",&a[i]);
+		scanf("%s",s+1);
+		printf("%lld\n",solve(1,n));
+//		printf("%lld\n",solve(1,4));
+	}
+	return 0;
+}

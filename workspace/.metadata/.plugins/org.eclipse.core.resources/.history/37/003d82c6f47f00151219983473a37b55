@@ -1,0 +1,37 @@
+import java.util.*;
+import java.math.BigInteger;
+import java.io.*;
+
+public class Main{
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		BigInteger t,w,b;
+		BigInteger tmp;
+		t=input.nextBigInteger();
+		w=input.nextBigInteger();
+		b=input.nextBigInteger();
+		if(w.compareTo(b)>0){
+			tmp=w;
+			w=b;
+			b=tmp;
+		}
+		BigInteger Lcm=w.divide(w.gcd(b)).multiply(b);
+		BigInteger n=t.divide(Lcm);
+		BigInteger m=n.multiply(w);
+		tmp=t.subtract(n.multiply(Lcm));
+		if(tmp.compareTo(BigInteger.ONE)>=0){
+			if(tmp.compareTo(w)>=0)m=m.add(w.subtract(BigInteger.ONE));
+			else m=m.add(tmp);
+		}
+		if(m.compareTo(BigInteger.ZERO)==0)System.out.println("0/1");
+		else {
+			BigInteger l=m.divide(m.gcd(t));
+			BigInteger r=t.divide(m.gcd(t));
+			System.out.print(l);
+			System.out.print("/");
+			System.out.println(r);
+		}
+		}
+		input.close();
+	}
+}

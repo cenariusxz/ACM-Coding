@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main {
+    static int [][]a = new int[15][15];
+    static int []num = new int[15];
+    public static void main(String []args){
+        a[0][0]=0;num[0]=1;
+        a[1][0]=1;num[1]=1;
+        a[2][0]=6;a[2][1]=2;a[2][2]=4;a[2][3]=8;num[2]=4;
+        a[3][0]=1;a[3][1]=3;a[3][2]=9;a[3][3]=7;num[3]=4;
+        a[4][0]=6;a[4][1]=4;num[4]=2;
+        a[5][0]=5;num[5]=1;
+        a[6][0]=6;num[6]=1;
+        a[7][0]=1;a[7][1]=7;a[7][2]=9;a[7][3]=6;num[7]=4;
+        a[8][0]=6;a[8][1]=8;a[8][2]=4;a[8][3]=2;num[8]=4;
+        a[9][0]=1;a[9][1]=9;num[9]=2;
+        Scanner input = new Scanner(System.in);
+        while(input.hasNext()){
+            int b=input.nextInt();
+            int n=input.nextInt();
+            b%=10;
+            n%=num[b];
+            System.out.println(a[b][n]);
+        }
+        input.close();
+    }
+}

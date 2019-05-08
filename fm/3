@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+using namespace std;
+typedef long long ll;
+
+ll gcd1(ll a,ll b){
+	for(;a>0&&b>0;a>b?a%=b:b%=a);
+	return a+b;
+}
+
+ll gcd2(ll a,ll b){
+	return b?gcd2(b,a%b):a;
+}
+
+int main(){
+	srand(time(NULL));
+	ll n=1;
+	ll m=-1;
+	printf("%lld %lld\n",gcd1(n,m),gcd2(n,m));
+	return 0;
+}

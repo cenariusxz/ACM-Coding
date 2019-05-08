@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+#include<algorithm>
+#include<math.h>
+using namespace std;
+typedef long long ll;
+const ll mod = 1e12;
+const int maxf=70;
+
+struct int128{
+	ll a,b;
+	bool operator < (int128 x)const{
+		if(a==x.a)return b<x.b;
+		return a<x.a;
+	}
+	int128 operator + (int128 x)const{
+		int128 tmp;
+		tmp.a=a+x.a;
+		tmp.b=b+x.b;
+		tmp.a+=tmp.b/mod;
+		tmp.b%=mod;
+		return tmp;
+	}
+	int128 operator - (int128 x)const{
+		int128 tmp;
+		tmp.a=a-x.a;
+		tmp.b=b-x.b;
+		if(tmp.b<0){
+			tmp.b+=mod;
+			tmp.a--;
+		}
+		return tmp;
+	}
+	int128 operator * (int128 x)const{
+		int128 tmp;
+		tmp.a=x.a*b;
+		tmp.b=x.b*b;
+		tmp.a+=tmp.b/mod;
+		tmp.b%=mod;
+		return tmp;
+	}
+	bool operator == (int128 x)const{
+		return a==x.a&&b==x.b;
+	}
+	int128():a(0),b(0){};
+	int128(ll x,ll y):a(x),b(y){}
+}f[100],p1,p2,sum[100],A[100];
+
+

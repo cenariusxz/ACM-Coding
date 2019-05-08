@@ -1,0 +1,49 @@
+import java.util.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.io.*;
+
+import javax.swing.text.html.MinimalHTMLWriter;
+
+import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
+
+public class Main{
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		while(true){
+			BigInteger m,n;
+			BigInteger zero = BigInteger.ZERO;
+			BigInteger one = BigInteger.ONE;
+			BigInteger two = BigInteger.valueOf(2);
+	
+			BigInteger six = BigInteger.valueOf(6);
+			BigInteger three = BigInteger.valueOf(3);
+			BigInteger four = BigInteger.valueOf(4);
+			
+			m = input.nextBigInteger();
+			n = input.nextBigInteger();
+			if(m.compareTo(zero) == 0 && n.compareTo(zero) == 0) break;
+			BigInteger t = m;
+			if(m.compareTo(n) > 0) t = n;
+			if(t.mod(two).compareTo(zero) == 0) t = t.subtract(one);
+			BigInteger ans = zero;
+			BigInteger t1 = t.subtract(one).divide(two);
+			BigInteger X = t.subtract(one).divide(two).add(one);
+			BigInteger s1 = t.add(one).multiply(X).divide(two);
+			BigInteger s2 = ((t.multiply(t.add(one)).
+					multiply(t.multiply(two).add(one))).divide(six)).subtract(
+							two.multiply(t1.multiply(t1.add(one)).multiply(t1.multiply(two).add(one))).divide(three));
+			BigInteger s3 = t.multiply(t).multiply(t.add(one)).multiply(t.add(one)).divide(four);
+			BigInteger ts3 = two.multiply(t1).multiply(t1).multiply(t1.add(one)).multiply(t1.add(one));
+			s3 = s3.subtract(ts3);
+			//System.out.println(s1);
+			//System.out.println(s2);
+			//System.out.println(s3);
+			
+			ans = m.multiply(n).multiply(s1).subtract(two.multiply(s2)).subtract(s2.multiply(m.add(n))).add(
+					s1.multiply(m.add(n).add(one))).add(s3);
+			System.out.println(ans);
+		}
+		input.close();
+	}
+}

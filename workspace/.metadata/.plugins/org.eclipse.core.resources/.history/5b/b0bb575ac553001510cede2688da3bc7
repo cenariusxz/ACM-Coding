@@ -1,0 +1,15 @@
+import java.util.*;
+import java.math.BigDecimal;
+
+public class Main{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		int T=input.nextInt();
+		while(T-->0){
+		//	int n=input.nextInt();
+			BigDecimal a=new BigDecimal("010.015");
+			System.out.println(a);
+		}
+		input.close();
+	}
+}
