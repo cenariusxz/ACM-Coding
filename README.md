@@ -116,6 +116,8 @@ SDLrun	人机交互作业
 
 shenyang	2015ICPC 沈阳赛区
 
+socode	socode
+
 tc		topcoder
 
 teaching	教学用
