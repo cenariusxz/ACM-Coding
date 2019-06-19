@@ -118,6 +118,8 @@ shenyang	2015ICPC 沈阳赛区
 
 socode	socode
 
+sycoj	oj.shiyancang.cn
+
 tc		topcoder
 
 teaching	教学用
