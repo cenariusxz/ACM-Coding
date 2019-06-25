@@ -26,22 +26,21 @@ Num addNum(Num a, Num b){
 char s[505],t[505];
 
 int main(){
-	while(scanf("%s%s",s,t)!=EOF){
-		int lens = strlen(s),lent = strlen(t);
-		Num a,b;
-		a.len = lens;
-		for(int i = 0 ; i < lens ; ++ i){
-			a.d[i] = s[lens-i-1] - '0';
-		}
-		b.len = lent;
-		for(int i = 0 ; i < lent ; ++ i){
-			b.d[i] = t[lent-i-1] - '0';
-		}
-		Num ans;
-		ans = addNum(a,b);
-
-		for(int i = ans.len-1 ; i >= 0 ; -- i)printf("%d",ans.d[i]);
-		printf("\n");
+	scanf("%s%s",s,t);
+	int lens = strlen(s),lent = strlen(t);
+	Num a,b;
+	a.len = lens;
+	for(int i = 0 ; i < lens ; ++ i){
+		a.d[i] = s[lens-i-1] - '0';
 	}
+	b.len = lent;
+	for(int i = 0 ; i < lent ; ++ i){
+		b.d[i] = t[lent-i-1] - '0';
+	}
+	Num ans;
+	ans = addNum(a,b);
+
+	for(int i = ans.len-1 ; i >= 0 ; -- i)printf("%d",ans.d[i]);
+	printf("\n");
 	return 0;
 }

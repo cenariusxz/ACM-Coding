@@ -43,22 +43,21 @@ Num mulNum(Num a,int x){
 
 int main(){
 	int n;
-	while(scanf("%d",&n)!=EOF){
-		Num ans;
-		ans.len = 1;
-		ans.d[0] = 0;
+	scanf("%d",&n);
+	Num ans;
+	ans.len = 1;
+	ans.d[0] = 0;
 
-		Num tmp;
-		tmp.len = 1;
-		tmp.d[0] = 1;
+	Num tmp;
+	tmp.len = 1;
+	tmp.d[0] = 1;
 
-		for(int i = 1 ; i <= n ; ++ i){
-			tmp = mulNum(tmp,i);
-			ans = addNum(ans,tmp);
-		}
-
-		for(int i = ans.len-1 ; i >= 0 ; -- i)printf("%d",ans.d[i]);
-		printf("\n");
+	for(int i = 1 ; i <= n ; ++ i){
+		tmp = mulNum(tmp,i);
+		ans = addNum(ans,tmp);
 	}
+
+	for(int i = ans.len-1 ; i >= 0 ; -- i)printf("%d",ans.d[i]);
+	printf("\n");
 	return 0;
 }

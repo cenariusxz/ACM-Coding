@@ -48,23 +48,22 @@ int n;
 char s[505];
 
 int main(){
-	while(scanf("%d%s",&n,s)!=EOF){
-		int lens = strlen(s);
-		Num a;
-		a.len = lens;
-		for(int i = 0 ; i < lens ; ++ i){
-			if(s[lens-i-1]>='0' && s[lens-i-1]<='9')a.d[i] = s[lens-i-1] - '0';
-			else a.d[i] = s[lens-i-1] - 'A' + 10;
-		}
-		Num x = reNum(a);
-		int step;
-		for(step = 1 ; step <= 30 ; ++ step){
-			Num b = reNum(a);
-			a = addNum(a,b,n);
-			if(check(a))break;
-		}
-		if(step == 31)printf("Impossible!\n");
-		else printf("STEP=%d\n",step);
+	scanf("%d%s",&n,s);
+	int lens = strlen(s);
+	Num a;
+	a.len = lens;
+	for(int i = 0 ; i < lens ; ++ i){
+		if(s[lens-i-1]>='0' && s[lens-i-1]<='9')a.d[i] = s[lens-i-1] - '0';
+		else a.d[i] = s[lens-i-1] - 'A' + 10;
 	}
+	Num x = reNum(a);
+	int step;
+	for(step = 1 ; step <= 30 ; ++ step){
+		Num b = reNum(a);
+		a = addNum(a,b,n);
+		if(check(a))break;
+	}
+	if(step == 31)printf("Impossible!\n");
+	else printf("STEP=%d\n",step);
 	return 0;
 }
