@@ -15,16 +15,16 @@ int n;
 void dfs(int s, int t){
 	if(s == 0){
 		// printf("%d=",n);
-		for(int i = 1 ; i < t ; ++ i){
+		for(int i = 1 ; i <= t ; ++ i){
 			printf("%d",a[i]);
-			if(i == t-1)printf("\n");
+			if(i == t)printf("\n");
 			else printf("+");
 		}
 		return;
 	}
-	for(int i = a[t-1] ; i <= s ; ++ i){
+	for(int i = a[t] ; i <= s ; ++ i){
 		if(i == n)continue;
-		a[t] = i;
+		a[t+1] = i;
 		dfs(s-i, t+1);
 	}
 }
@@ -32,7 +32,7 @@ void dfs(int s, int t){
 int main(){
 	a[0] = 1;
 	scanf("%d",&n);
-	dfs(n,1);
+	dfs(n,0);
 	return 0;
 }
 

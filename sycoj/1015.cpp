@@ -24,5 +24,5 @@ int main(){
 	t = 'a' + T - 1;
 	for(int i = 1 ; i <= 5 ; ++ i)solve();
 	return 0;
-}	
+}
 

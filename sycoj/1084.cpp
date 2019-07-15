@@ -16,8 +16,7 @@ void BFS(int x,int y){
     q.push(node{x,y});
     vis[x][y] = 1;
     while(!q.empty()){
-        node u = q.front();
-        q.pop();
+        node u = q.front();q.pop();
         for(int i = 0 ; i < 4 ; ++ i){
             int dx = u.x + xx[i];
             int dy = u.y + yy[i];

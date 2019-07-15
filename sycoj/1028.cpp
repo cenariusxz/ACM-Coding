@@ -12,20 +12,19 @@ const int maxm = 1e6 + 6;
 int a[maxn];
 
 void qsort(int l,int r){
+	if(l >= r)return;
 	int i = l,j = r;
 	int pivot = a[(l+r)/2];
-	if(l < r){
-		while(i <= j){
-			while(a[i] < pivot)i++;
-			while(a[j] > pivot)j--;
-			if(i <= j){
-				swap(a[i],a[j]);
-				i++;j--;
-			}
+	while(i <= j){
+		while(a[i] < pivot)i++;
+		while(a[j] > pivot)j--;
+		if(i <= j){
+			swap(a[i],a[j]);
+			i++;j--;
 		}
 	}
-	if(l<j)qsort(l,j);
-	if(i<r)qsort(i,r);
+	qsort(l,j);
+	qsort(i,r);
 }
 
 int main(){

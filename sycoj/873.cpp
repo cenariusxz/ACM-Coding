@@ -18,7 +18,7 @@ int main(){
 	for(int i = 1 ; i <= m ; ++ i){
 		int cnt = 0;
 		for(int j = 1 ; j <= m ; ++ j){
-			if(a[j] >= a[i] && cnt < n) cnt++;
+			if(a[j] >= a[i] && cnt < n)cnt++;
 		}
 		if(cnt * a[i] > ans2 || (cnt * a[i] == ans2 && a[i] < ans1)){
 			ans1 = a[i];

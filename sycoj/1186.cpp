@@ -15,8 +15,8 @@ struct node{
 int s[10][10],vis[10][10];
 node ans[10][10];
 int n = 5;
-int xx[4] = {0,0,1,-1};
-int yy[4] = {1,-1,0,0};
+int xx[4] = {1,-1,0,0};
+int yy[4] = {0,0,1,-1};
  
 void bfs(){
 	queue<node>q;
@@ -55,7 +55,16 @@ int main(){
 		}
 	}
 	bfs();
-	dfs(5,5);
+	// dfs(5,5);
+	node res[50];
+	int x = 5, y = 5, cnt = 0;
+	while(x != 1 || y != 1){
+		res[++cnt] = node{x,y};
+		int dx = ans[x][y].x, dy = ans[x][y].y;
+		x = dx; y = dy;
+	}
+	res[++cnt] = node{1,1};
+	for(int i = cnt ; i >= 1 ; -- i)printf("(%d, %d)\n",res[i].x-1,res[i].y-1);
 	return 0;
 }
 

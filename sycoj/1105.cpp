@@ -12,14 +12,14 @@ void print(){
     }
 }
 
-void dfs(int k){
-    if(k == r){
+void dfs(int t){
+    if(t == r){
         print();
         return;
     }
-    for(int i = a[k]+1 ; i <= n ; ++ i){
-        a[k+1] = i;
-        dfs(k+1);
+    for(int i = a[t]+1 ; i <= n ; ++ i){
+        a[t+1] = i;
+        dfs(t+1);
 	}
 }
 
@@ -28,3 +28,4 @@ int main(){
     dfs(0);
     return 0;
 }
+

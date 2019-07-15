@@ -50,7 +50,7 @@ bool bfs(int x, int y){
 
 int main(){
 	scanf("%d%d",&r,&c);
-	for(int i = 1 ; i <= r ; ++ i)scanf("%s",  s[i] + 1);
+	for(int i = 1 ; i <= r ; ++ i)scanf("%s", s[i] + 1);
 	int ans = 0;
 	for(int i = 1 ; i <= r ; ++ i){
 		for(int j = 1 ; j <= c ; ++ j){

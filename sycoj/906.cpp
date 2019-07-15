@@ -29,7 +29,7 @@ int main(){
 			if(nd[2*i-1].w > nd[2*i].w){
 				nd[2*i-1].s ++;
 				win[i] = nd[2*i-1];
-				lose[i] = nd[2*i];	
+				lose[i] = nd[2*i];
 			}
 			else{
 				nd[2*i].s ++;

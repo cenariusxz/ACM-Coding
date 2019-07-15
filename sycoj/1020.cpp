@@ -12,19 +12,18 @@ void print(){
     printf("\n");
 }
 
-void dfs(int k){        //已放完前k行
+void dfs(int k){
 	if(k == n){
     	sum++;
 		if(sum <= 3)print();
         return;
     }
-    // 填k+1行
     for(int i = 1 ; i <= n ; ++ i){
         if(used[i])continue;
         if(used_fu[ i + k+1 ])continue;
         if(used_zhu[ i - (k+1) + n-1])continue;
         a[k+1] = i;
-        bool flag = true;       //表示第 k+1行可以填i
+        bool flag = true;
         if(flag == true){
             used[i] = 1 ;
             used_fu[ i + k+1 ] = 1;

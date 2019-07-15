@@ -19,7 +19,7 @@ int main(){
 	char c;
 	s[l+1] = '+';
 	for(int i = 1 ; i <= l + 1 ; ++ i){
-		if(s[i] >= '0' && s[i] <= '9'){
+		if(s[i] >= '0' && s[i] <= '9'){		//Êı 
 			num = num * 10 + s[i] - '0';
 		}
 		else{
