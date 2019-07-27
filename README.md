@@ -66,6 +66,8 @@ bishi	笔试
 
 BUAA	北航校赛
 
+bzoj	大视野OJ（八中OJ）
+
 ccpc	2016CCPC online && 杭州赛区 && 合肥赛区
 
 cf		Codeforces
