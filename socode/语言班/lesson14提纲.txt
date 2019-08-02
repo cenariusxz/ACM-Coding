@@ -1,0 +1,51 @@
+宏定义
+#define A B
+编译时，把代码中所有的 A 替换成 B
+不要用宏定义来定义数
+
+常量定义
+const 变量定义;
+常变量
+用于定义常用的量，以及数组长度
+
+1e4 + 5
+
+类型重命名
+typedef 原类型 绰号;
+
+INF
+0x7fffffff
+0x3f3f3f3f
+
+
+#include <string.h>
+#include <cstring>
+memset
+memset(数组名, 可选值, sizeof(数组名));
+memset(a, 0, sizeof(a));	数组清0
+memset(a, -1, sizeof(a));	数组全部赋值-1
+memset(a, 0x3f, sizeof(a));	数组全部赋值0x3f3f3f3f 或 0x3f3f3f3f3f3f3f3f
+
+#include <string.h>
+#include <cstring>
+将原数组内容复制进目标数组
+memcpy(目标数组名, 原数组名, sizeof(目标数组名));
+memcpy(a, b, sizeof(a));	// a = b
+
+inline
+内联函数修饰词
+inline 函数定义
+
+
+
+结构体
+struct
+自己定义的变量类型
+
+struct 变量类型名{
+	成员变量列表
+};
+
+变量类型名 定义的变量名;
+使用：
+变量名.成员变量名
