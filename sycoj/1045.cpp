@@ -13,23 +13,22 @@ char s[maxn][105], t[105];
 int n;
 
 void qsort(int l,int r){
+	if(l >= r)return; 
 	int i = l,j = r;
 	char pivot[105];
 	strcpy(pivot, s[(l+r)/2]);
-	if(l < r){
-		while(i <= j){
-			while(strcmp(s[i],pivot)<0)i++;
-			while(strcmp(s[j],pivot)>0)j--;
-			if(i <= j){
-				strcpy(t,s[i]);
-				strcpy(s[i],s[j]);
-				strcpy(s[j],t);
-				i++;j--;
-			}
+	while(i <= j){
+		while(strcmp(s[i],pivot)<0)i++;
+		while(strcmp(s[j],pivot)>0)j--;
+		if(i <= j){
+			strcpy(t,s[i]);
+			strcpy(s[i],s[j]);
+			strcpy(s[j],t);
+			i++;j--;
 		}
 	}
-	if(l<j)qsort(l,j);
-	if(i<r)qsort(i,r);
+	qsort(l,j);
+	qsort(i,r);
 }
 
 int main(){

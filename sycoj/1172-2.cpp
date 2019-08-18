@@ -14,28 +14,27 @@ char ss[maxn];
 int k;
 int a[20],b[20];
 queue<string>q;
-map<string, int>M;
+map<string, int>vis;
 
 int main(){
 	scanf("%s%d",ss,&k);
 	s = string(ss);
 	for(int i = 1 ; i <= k ; ++ i)scanf("%d%d",&a[i],&b[i]);
-	M[s] = 1;
-	int ans = 1;
+	int ans = 0;
+	vis[s] = 1;
 	q.push(s);
 	while(!q.empty()){
+		ans ++;
 		string u = q.front();q.pop();
+		int len = u.length();
 		for(int i = 1 ; i <= k ; ++ i){
-			int len = u.length();
 			for(int j = 0 ; j < len ; ++ j){
 				if(a[i] == u[j] - '0'){
 					string tmp = u;
 					tmp[j] = b[i] + '0';
-					if(!M[tmp]){
-						M[tmp] = 1;
-						ans ++;
-						q.push(tmp);
-					}
+					if(vis[tmp])continue;
+					vis[tmp] = 1;
+					q.push(tmp);
 				}
 			}
 		}
@@ -43,5 +42,3 @@ int main(){
 	printf("%d\n",ans);
 	return 0;
 }
-
-

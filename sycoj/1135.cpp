@@ -38,6 +38,5 @@ int main(){
 	dfs(x,y,1);
 	printf("%d\n",ans);
 	return 0;
-	
 }
 

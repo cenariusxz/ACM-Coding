@@ -38,7 +38,7 @@ void dfs(int group, int pre, int sum){
 		id[i] = group + 1;
 		dfs(group+1, i, sum+1);
 		id[i] = 0;
-		break;	
+		break;
 	}
 }
 

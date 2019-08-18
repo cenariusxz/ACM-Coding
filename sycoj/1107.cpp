@@ -97,5 +97,3 @@ int main(){
 	printf("%d\n",s1.top());
 	return 0;
 }
-
-

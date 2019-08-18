@@ -17,7 +17,7 @@ node ans[10][10];
 int n = 5;
 int xx[4] = {1,-1,0,0};
 int yy[4] = {0,0,1,-1};
- 
+
 void bfs(){
 	queue<node>q;
 	q.push(node{1,1});

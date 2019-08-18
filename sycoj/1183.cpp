@@ -44,7 +44,6 @@ void bfs(int x,int y){
 int main(){
 	while(scanf("%d%d",&n,&m)&&(n||m)){
 		memset(vis,0,sizeof(vis));
-		int cnt = 0;
 		for(int i = 1 ; i <= n ; ++ i)scanf("%s",s[i]+1);
 		int x,y;
 		for(int i = 1 ; i <= n ; ++ i){

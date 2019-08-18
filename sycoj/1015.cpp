@@ -10,7 +10,7 @@ void solve(){
 		if(num[i] == t - w + i)continue;
 		num[i] ++;
 		for(int j = i+1 ; j <= w ; ++ j){
-			num[j] = num[i] + j-i;
+			num[j] = num[j-1] + 1;
 		}
 		printf("%s\n",num+1);
 		return;
@@ -25,4 +25,3 @@ int main(){
 	for(int i = 1 ; i <= 5 ; ++ i)solve();
 	return 0;
 }
-

@@ -24,14 +24,14 @@ void bfs(int x,int y){
     q.push(node{x,y});
     while(!q.empty()){
         node u = q.front();q.pop();
-        M[u.x][u.y] = 2;
+        M[u.x][u.y] = 0;
         for(int i = 0 ; i < 4 ; ++ i){
             int dx = u.x + xx[i];
             int dy = u.y + yy[i];
             if(dx < 1 || dx > n || dy < 1 || dy > n)continue;
             if(vis[dx][dy]||M[dx][dy] == 1)continue;
             vis[dx][dy] = 1;
-            q.push(node{dx,dy});	
+            q.push(node{dx,dy});
         }
     }
 }
@@ -41,19 +41,18 @@ int main(){
     for(int i = 1 ; i <= n ; ++ i){
         for(int j = 1 ; j <= n ; ++ j){
             scanf("%d",&M[i][j]);
+            if(M[i][j] == 0)M[i][j] = 2;
         }
     }
     for(int i = 1 ; i <= n ; ++ i){
-        if(!vis[1][i] && M[1][i] == 0)bfs(1,i);
-        if(!vis[n][i] && M[n][i] == 0)bfs(n,i);
-        if(!vis[i][1] && M[i][1] == 0)bfs(i,1);
-        if(!vis[i][n] && M[i][n] == 0)bfs(i,n);
+        if(!vis[1][i] && M[1][i] == 2)bfs(1,i);
+        if(!vis[n][i] && M[n][i] == 2)bfs(n,i);
+        if(!vis[i][1] && M[i][1] == 2)bfs(i,1);
+        if(!vis[i][n] && M[i][n] == 2)bfs(i,n);
     }
     for(int i = 1 ; i <= n ; ++ i){
         for(int j = 1 ; j <= n ; ++ j){
-            if(M[i][j] == 0)printf("2 ");
-            if(M[i][j] == 2)printf("0 ");
-            if(M[i][j] == 1)printf("1 ");
+			printf("%d ",M[i][j]);
         }
         printf("\n");
     }

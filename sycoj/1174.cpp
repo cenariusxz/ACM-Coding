@@ -30,7 +30,7 @@ void bfs(int x, int y){
 			if(vis[dx][dy])continue;
 			if(s[dx][dy] == '.')continue;
 			vis[dx][dy] = 1;
-			q.push(node{dx,dy});	
+			q.push(node{dx,dy});
 		}
 	}
 }
