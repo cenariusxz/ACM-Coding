@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 typedef long long ll;
 #define MP make_pair
@@ -21,10 +22,12 @@ ll getC(ll n,ll m){
 
 int main(){
 	ll n,m;
-	while(scanf("%lld%lld",&n,&m) == 2){
-		if(!n && !m)break;
-		if(n>m)swap(n,m);
-		printf("%lld\n",getC(n+m,n));	
+	while(scanf("%lld%lld",&n,&m)){
+		if(n == 0 && m == 0)break;
+		printf("%lld things taken %lld at a time is ",n,m);
+		if(m > n - m)m = n - m;
+		printf("%lld",getC(n,m));
+		printf(" exactly.\n");
 	}
 	return 0;
 }
