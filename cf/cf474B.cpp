@@ -1,4 +1,4 @@
-﻿#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 #define PB push_back
@@ -7,10 +7,10 @@ const int INF = 0x3f3f3f3f;
 const double eps = 1e-8;
 const int mod = 1e9 + 7;
 const int maxn = 1e6 + 5;
-
+ 
 int n;
 int id[maxn];
-
+ 
 int main(){
     scanf("%d",&n);
     int cnt = 0;
@@ -26,7 +26,7 @@ int main(){
     while(m--){
         int a;
         scanf("%d",&a);
-
+        printf("%d\n",id[a]);
     }
     return 0;
 }
