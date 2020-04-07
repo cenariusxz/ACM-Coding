@@ -18,10 +18,8 @@ int main(){
 	int n0 = 0, n1 = 0, n2 = 0, cnt = n;
 	for(int i = n ; i >= 1 ; -- i){
 		if(s[i] == '0'){
-			if(n2){
-				for(int j = 1 ; j <= n2 ; ++ j)t[cnt--] = '2';
-				n2 = 0;
-			}
+			for(int j = 1 ; j <= n2 ; ++ j)t[cnt--] = '2';
+			n2 = 0;
 			n0++;
 		}
 		if(s[i] == '1')n1++;

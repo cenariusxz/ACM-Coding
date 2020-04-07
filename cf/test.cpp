@@ -5,45 +5,56 @@ typedef long long ll;
 #define PB push_back
 const int mod = 1e9 + 7;
 const double eps = 1e-8;
-const int INF = 0x3f3f3f3f;
-const int maxn = 1e3 + 5;
+const double INF = 1e60;
+const int maxn = 1e5 + 5;
 const int maxm = 1e6 + 5;
 
-int n,m;
-int a[maxm];
-int dp[2][maxn];
+int ax, ay, bx, by, tx, ty, n;
+int x[maxn], y[maxn];
 
-bool solve(){
-	dp[0][0] = 1;
-	for(int i = 1 ; i <= n ; ++ i){
-		int now = i & 1;
-		int pre = now ^ 1;
-		for(int j = 0 ; j < m ; ++ j){
-			// dp[i-1][j];
-			if(dp[pre][j] == 0)continue;
-			dp[now][j] = 1;
-			int x = j + a[i];
-			// printf("%d %d %d\n",j , a[i], x);
-			if(x % m == 0)return 1;
-			x %= m;
-			dp[now][x] = 1;
-		}
-	}
-	return 0;
+double cal(int xx, int yy, int id){
+	return sqrt((xx - x[id])*1.0*(xx - x[id]) + (yy - y[id])*1.0*(yy - y[id]));
 }
 
 int main(){
-	scanf("%d%d",&n,&m);
+	scanf("%d%d%d%d%d%d", &ax, &ay, &bx, &by, &tx, &ty);
+	scanf("%d", &n);
+	for(int i = 1 ; i <= n ; ++ i)scanf("%d%d", &x[i], &y[i]);
+	
+	double sum = 0;
+	for(int i = 1 ; i <= n ; ++ i)sum += 2 * cal(tx, ty, i);
+	
+	double maxa1 = -INF, maxa2 = -INF, maxb1 = -INF, maxb2 = -INF;
+	int a1, a2, b1, b2;
+	
 	for(int i = 1 ; i <= n ; ++ i){
-		scanf("%d", &a[i]);
-		if(a[i] % m == 0){
-			printf("YES\n");
-			return 0;
+		double dela = cal(tx, ty, i) - cal(ax, ay, i);
+		if(dela > maxa1){
+			maxa2 = maxa1; a2 = a1;
+			maxa1 = dela; a1 = i;
 		}
-		a[i] %= m;
+		else if(dela > maxa2)maxa2 = dela, a2 = i;
 	}
-	if(solve())printf("YES\n");
-	else printf("NO\n");
+	
+	for(int i = 1 ; i <= n ; ++ i){
+		double delb = cal(tx, ty, i) - cal(bx, by, i);
+		if(delb > maxb1){
+			maxb2 = maxb1; b2 = b1;
+			maxb1 = delb; b1 = i;
+		}
+		else if(delb > maxb2)maxb2 = delb, b2 = i;
+	}
+	
+	double ans = INF;
+	ans = min(sum - maxa1, sum - maxb1);
+	if(n >= 2){
+		if(a1 != b1)ans = min(ans, sum - maxa1 - maxb1);
+		else{
+			ans = min(ans, sum - maxa1 - maxb2);
+			ans = min(ans, sum - maxa2 - maxb1);
+		}
+	}
+	printf("%.15lf\n", ans);
 	return 0;
 }
 
