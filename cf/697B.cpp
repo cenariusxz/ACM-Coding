@@ -34,14 +34,8 @@ int main(){
 	}
 	posdot += b;
 	
-	// 输出整数部分 0~pos，不输出前导0，记录输出多少数字，如果未输出数字，则输出一个'0' 
-	int cnt = 0;
-	for(int i = 1 ; i <= posdot ; ++ i){
-		if(t[i] == '0' && cnt == 0)continue;
-		cnt++;
-		putchar(t[i]);
-	}
-	if(cnt == 0)putchar('0');
+	// 输出整数部分 0~pos
+	for(int i = 1 ; i <= posdot ; ++ i)putchar(t[i]);
 	
 	// 输出小数点 如果len>pos输出小数点 
 	if(len > posdot)putchar('.');
