@@ -40,6 +40,6 @@ int main(){
 			}
 		}
 	}
-		printf("%d %d\n",l[p],r[p]);
+	printf("%d %d\n",l[p],r[p]);
 	return 0;
 }
