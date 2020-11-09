@@ -20,6 +20,7 @@ void insertword(int s){
     }
 }
 
+
 void deleteword(int s){
     int p=0;
 	for(int i = 30 ; i >= 0 ; -- i){
