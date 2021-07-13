@@ -30,13 +30,6 @@ int main(){
 			* QP(2, mod-2) % mod 
 			* QP(QP(p, k), mod-2) % mod
 		);
-		/*
-		printf("%lld\n",
-			((
-			(QP(p,k)+QP(p-2ll*q,k))%mod
-			*QP(2ll,mod-2ll))%mod
-        	*QP(QP(p,k),mod-2ll))%mod
-		);*/
 	}
 	return 0;
 }
