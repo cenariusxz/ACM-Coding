@@ -17,10 +17,8 @@ int main(){
 	for(int i = 1 ; i <= n ; ++ i)dp[a[i]]++;
 	pw2[0] = 1;
 	for(int i = 1 ; i <= n ; ++ i)pw2[i] = pw2[i-1] * 2 % mod;
-	// printf("aaaaaaaaaa\n");
 	for(int i = 0 ; i < 20 ; ++ i){
 		for(int j = 0 ; j < (1 << 20) ; ++ j){
-			// if(j % 10000 == 0)printf("aaaaaaaaaa %d \n", j);
 			if(!(j & (1 << i)))dp[j] = (dp[j] + dp[j^(1<<i)]) % mod;
 		}
 	}

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>	//1425D
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 #define MP make_pair
@@ -50,13 +50,11 @@ int main(){
 		for(int j = 1 ; j <= n ; ++ j)num[i] += check(i, j);
 		ans = (ans + (C[n][m] - C[n-num[i]][m] + mod) % mod * b[i] % mod * b[i] % mod) % mod;
 	}
-	//printf("%lld\n", ans);
 	for(int i = 1 ; i <= n ; ++ i){
 		for(int j = i + 1 ; j <= n ; ++ j){
 			int noti = n - num[i];
 			int notj = n - num[j];
 			int notij = n - num[i] - num[j] + getnum(i, j);
-			//printf("%d\n", getnum(i, j));
 			ans = (ans + (C[n][m] - C[noti][m] - C[notj][m] + C[notij][m] + mod + mod) % mod * b[i] % mod * b[j] % mod * 2) % mod;
 		}
 	}

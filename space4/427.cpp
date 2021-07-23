@@ -26,10 +26,6 @@ void getP(int num){
 ll del(int ind){
 	vis[ind] --;
 	nsum --;
-	if(a[ind] == 1){
-		cnt[1] --;
-		return nsum;
-	}
 	getP(a[ind]);
 	ll res = 0;
 	for(int i = 1 ; i < (1 << pcnt) ; ++ i){
@@ -48,10 +44,6 @@ ll del(int ind){
 ll add(int ind){
 	vis[ind] ++;
 	nsum ++;
-	if(a[ind] == 1){
-		cnt[1] ++;
-		return nsum - 1;
-	}
 	getP(a[ind]);
 	ll res = 0;
 	for(int i = 1 ; i < (1 << pcnt) ; ++ i){
@@ -76,8 +68,6 @@ int main(){
 		scanf("%d", &ind);
 		if(vis[ind])ans -= del(ind);
 		else ans += add(ind);
-		//for(int i = 1 ; i <= 6 ; ++ i)printf("T: %d ", cnt[i]);
-		//printf("\n");
 		printf("%lld\n", ans);
 	}
 	return 0;
