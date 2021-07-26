@@ -12,10 +12,6 @@ const int maxm = 1e6 + 5;
 int n;
 double a[100][100], p[10][100], dp[10][100]; 
 
-void solve(){
-
-}
-
 int main(){
 	scanf("%d", &n);
 	for(int i = 0 ; i < (1<<n) ; ++ i){
